@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class RotateCamera : MonoBehaviour
 {
-    public float rotationSpeed;
-
-    void Start()
-    {
-        
-    }
+    [SerializeField] float rotationSpeed;
 
     void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        transform.Rotate(Vector3.up, horizontalInput * rotationSpeed * Time.deltaTime);
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        transform.Rotate(Vector3.up, rotationSpeed * horizontalInput * Time.deltaTime);
     }
 }
